@@ -4,33 +4,35 @@ const sell = e => document.querySelector(`${e}`)
 
 const sellAll = e => document.querySelectorAll(`${e}`)
 
+let add = 0
+
 const  rand = () => {
     let randi = Math.trunc(Math.random() * 6)
-    let arr = []
+    let arr
     switch(randi){
         case 0:
-            arr.push('dice-1.png', 1)
+            arr = 'dice-1.png'
             break
         case 1:
-            arr.push('dice-2.png', 2)
+            arr = 'dice-2.png'
             break
         case 2:
-            arr.push('dice-3.png', 3)
+            arr = 'dice-3.png'
             break
         case 3:
-            arr.push('dice-4.png', 4)
+            arr = 'dice-4.png'
             break
         case 4:
-            arr.push('dice-5.png', 5)
+            arr = 'dice-5.png'
             break
         case 5:
-            arr.push('dice-6.png', 6)
+            arr = 'dice-6.png'
             break
     }
+    console.log(arr, randi + 1)
     return arr
 }
 
 sell('.btn--roll').addEventListener('click', () => {
-    sell('.dice').src = `${rand()[0]}`
-    console.log(rand())
+    sell('.dice').src = `${rand()}`
 })
