@@ -32,13 +32,15 @@ const  rand = () => {
             break
     }
     if(arr === 'dice-1.png') control++
+    function controll(a, b) {
+        sell(a).style.backgroundColor = '#ffffff66'
+        sell(b).style.backgroundColor = ''
+    }
     if(control === 1) {
-        sell('.player--1').style.backgroundColor = '#ffffff66'
-        sell('.player--0').style.backgroundColor = ''
+        controll('.player--1', '.player--0')
     }
     if(control === 2) {
-        sell('.player--0').style.backgroundColor = '#ffffff66'
-        sell('.player--1').style.backgroundColor = ''
+        controll('.player--0', '.player--1')
         control = 0
     }
     
