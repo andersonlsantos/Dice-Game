@@ -4,7 +4,9 @@ const sell = e => document.querySelector(`${e}`)
 
 const sellAll = e => document.querySelectorAll(`${e}`)
 
-let add = 0
+sell('.player--0').style.backgroundColor = '#ffffff66'
+
+let control = 0
 
 const  rand = () => {
     let randi = Math.trunc(Math.random() * 6)
@@ -29,7 +31,17 @@ const  rand = () => {
             arr = 'dice-6.png'
             break
     }
-    console.log(arr, randi + 1)
+    if(arr === 'dice-1.png') control++
+    if(control === 1) {
+        sell('.player--1').style.backgroundColor = '#ffffff66'
+        sell('.player--0').style.backgroundColor = ''
+    }
+    if(control === 2) {
+        sell('.player--0').style.backgroundColor = '#ffffff66'
+        sell('.player--1').style.backgroundColor = ''
+        control = 0
+    }
+    
     return arr
 }
 
