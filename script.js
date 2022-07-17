@@ -8,6 +8,8 @@ sell('.player--0').style.backgroundColor = '#ffffff66'
 
 let control = 0
 
+let add = 0
+
 const  rand = () => {
     let randi = Math.trunc(Math.random() * 6)
     let arr
@@ -31,13 +33,25 @@ const  rand = () => {
             arr = 'dice-6.png'
             break
     }
+    if(randi === 0){
+        add = 0
+    }else{
+        add += (randi + 1)
+    }
+
     if(arr === 'dice-1.png') control++
     function controll(a, b) {
         sell(a).style.backgroundColor = '#ffffff66'
         sell(b).style.backgroundColor = ''
     }
+    if(control === 0){
+        sell('#current--0').textContent = `${add}`
+        sell('#current--1').textContent = '0'
+    }
     if(control === 1) {
         controll('.player--1', '.player--0')
+        sell('#current--1').textContent = `${add}`
+        sell('#current--0').textContent = '0'
     }
     if(control === 2) {
         controll('.player--0', '.player--1')
