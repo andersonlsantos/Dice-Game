@@ -12,27 +12,14 @@ let add = 0
 
 const  rand = () => {
     let randi = Math.trunc(Math.random() * 6)
-    let arr
-    switch(randi){
-        case 0:
-            arr = 'dice-1.png'
-            break
-        case 1:
-            arr = 'dice-2.png'
-            break
-        case 2:
-            arr = 'dice-3.png'
-            break
-        case 3:
-            arr = 'dice-4.png'
-            break
-        case 4:
-            arr = 'dice-5.png'
-            break
-        case 5:
-            arr = 'dice-6.png'
-            break
-    }
+    let arr = ''
+    if(randi === 0) arr = 'dice-1.png'
+    if(randi === 1) arr = 'dice-2.png'
+    if(randi === 2) arr = 'dice-3.png'
+    if(randi === 3) arr = 'dice-4.png'
+    if(randi === 4) arr = 'dice-5.png'
+    if(randi === 5) arr = 'dice-6.png'
+    
     if(randi === 0){
         add = 0
     }else{
@@ -58,9 +45,13 @@ const  rand = () => {
         control = 0
     }
     
-    return arr
+    return [arr, randi]
 }
 
 sell('.btn--roll').addEventListener('click', () => {
-    sell('.dice').src = `${rand()}`
+    sell('.dice').src = `${rand()[0]}`
+})
+
+sell('.btn--hold').addEventListener('click', function() {
+    alert(rand()[0])
 })
