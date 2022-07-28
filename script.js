@@ -7,8 +7,10 @@ const sellAll = e => document.querySelectorAll(`${e}`)
 sell('.player--0').style.backgroundColor = '#ffffff66'
 
 let control = 0
-
+let control2 = 0
+let control3 = 0
 let add = 0
+let add2 = 0
 
 const  rand = () => {
     let randi = Math.trunc(Math.random() * 6)
@@ -45,13 +47,19 @@ const  rand = () => {
         control = 0
     }
     
-    return [arr, randi]
+    return arr
 }
 
 sell('.btn--roll').addEventListener('click', () => {
-    sell('.dice').src = `${rand()[0]}`
+    sell('.dice').src = `${rand()}`
 })
 
-sell('.btn--hold').addEventListener('click', function() {
-    alert(rand()[0])
+sell('.btn--hold').addEventListener('click', () => {
+    let current0 = Number(sell('#current--0').textContent)
+    let current1 = Number(sell('#current--1').textContent)
+    control2 += current0
+    control3 += current1
+    add2++
+    sell('#score--0').textContent = control2
+    sell('#score--1').textContent = control3
 })
