@@ -15,8 +15,6 @@ let add2 = 0
 const  rand = () => {
     let randi = Math.trunc(Math.random() * 6)
     let arr = ''
-    let cont
-    let list
     if(randi === 0) arr = 'dice-1.png'
     if(randi === 1) arr = 'dice-2.png'
     if(randi === 2) arr = 'dice-3.png'
@@ -38,26 +36,22 @@ const  rand = () => {
     if(control === 0){
         sell('#current--0').textContent = `${add}`
         sell('#current--1').textContent = '0'
-        cont = 0
     }
     if(control === 1) {
         controll('.player--1', '.player--0')
         sell('#current--1').textContent = `${add}`
         sell('#current--0').textContent = '0'
-        cont = 1
     }
     if(control === 2) {
         controll('.player--0', '.player--1')
         control = 0
     }
-
-    list = [arr, cont]
     
-    return list
+    return arr
 }
 
 sell('.btn--roll').addEventListener('click', () => {
-    sell('.dice').src = `${rand()[0]}`
+    sell('.dice').src = `${rand()}`
 })
 
 sell('.btn--hold').addEventListener('click', () => {
@@ -66,12 +60,6 @@ sell('.btn--hold').addEventListener('click', () => {
     control2 += current0
     control3 += current1
     add2++
-    if(rand()[1] === 0){
-        sell('.test').textContent = 0
-    }
-    if(rand()[1] === 1){
-        sell('.test').textContent = 1
-    }
     sell('#score--0').textContent = control2
     sell('#score--1').textContent = control3
 })
