@@ -50,11 +50,11 @@ const  rand = () => {
     return arr
 }
 
-sell('.btn--roll').addEventListener('click', () => {
+sell('.btn--roll').addEventListener('click', function() {
     sell('.dice').src = `${rand()}`
 })
 
-sell('.btn--hold').addEventListener('click', () => {
+sell('.btn--hold').addEventListener('click', function() {
     let current0 = Number(sell('#current--0').textContent)
     let current1 = Number(sell('#current--1').textContent)
     control2 += current0
